@@ -1,0 +1,27 @@
+
+<div class="row section-order">
+    <h1>
+        Log : <%= document.id %>
+    </h1>
+    <div class="small button-group round">
+        <a href="<%= path('admin') %>" class="button secondary"><i class="fa fa-fw fa-tachometer"></i> Admin</a>
+        <a href="<%= path('admin_user_index') %>" class="button secondary"><i class="fa fa-fw fa-chevron-left"></i> Back</a>
+    </div>
+    <div class="content-index">
+        <fieldset class="fieldset">
+            <legend>Data</legend>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            ID
+                        </td>
+                        <td>
+                            <%= document.id %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+</div>

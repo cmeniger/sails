@@ -1,0 +1,41 @@
+<header>
+    <div class="float-left">
+        <a href="#" id="menu-switch" class="large menu-switch"></a>
+        <!--<span><i class="fa fa-fw fa-file"></i> 3</span>-->
+        <!--<span><i class="fa fa-fw fa-cog"></i> 100</span>-->
+        <!--<span><i class="fa fa-fw fa-cube"></i> 0</span>-->
+        <!--<ul>-->
+        <!--<li><i class="fa fa-fw fa-file"></i> 3</li>-->
+        <!--<li><i class="fa fa-fw fa-cog"></i> 100</li>-->
+        <!--<li><i class="fa fa-fw fa-cube"></i> 0</li>-->
+        <!--</ul>-->
+    </div>
+    <div class="float-right">
+        <!--<a href="#" id="notification" class="notification"> <i class="fa fa-fw fa-bell"></i> 5</a>-->
+        <div class="clock">
+            <span class="date" id="clock-date"><%= sails.moment().locale(req.locale).format('L') %></span>
+            <span class="time" id="clock-time"><%= sails.moment().locale(req.locale).format('LT') %></span>
+        </div>
+    </div>
+    <script type="application/javascript">
+        $('#menu-switch').click(function (e)
+        {
+            e.preventDefault();
+            if($('body').hasClass('menu-small'))
+            {
+                $('body').removeClass('menu-small').addClass('menu-large')
+                $.cookie("adminMenu", 'menu-large');
+            }
+            else
+            {
+                $('body').removeClass('menu-large').addClass('menu-small');
+                $.cookie("adminMenu", 'menu-small');
+            }
+        });
+        setInterval(function ()
+        {
+            $('#clock-date').html(moment().locale('<%= req.locale %>').format('L'));
+            $('#clock-time').html(moment().locale('<%= req.locale %>').format('LT'));
+        }, 1000);
+    </script>
+</header>

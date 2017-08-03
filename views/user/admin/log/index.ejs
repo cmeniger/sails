@@ -1,0 +1,92 @@
+<div class="row section-user-log">
+    <div class="panel">
+        <div class="float-left">
+            <h1>
+                <i class="fa fa-history"></i> UserLog
+            </h1>
+            <nav aria-label="You are here:" role="navigation">
+                <ul class="breadcrumbs">
+                    <li><a href="<%= path('home') %>">Home</a></li>
+                    <li><a href="<%= path('admin') %>">Admin</a></li>
+                    <li><a href="<%= path('admin_user_index') %>">Users</a></li>
+                    <li>
+                        <span class="show-for-sr">Current: </span> Logs
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="float-right">
+            <div class="button-group reset-margin">
+                <a class="button round secondary" data-open="modal-settings-user-log"><i class="fa fa-fw fa-cogs"></i>
+                    Settings</a>
+            </div>
+            <% if(typeof pagination != 'undefined') { %>
+            <div class="counter-index">
+                <span><%= pagination.total %></span>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <div class="content-index" id="content-index">
+        <%- partial('../../../_partials/pagination.ejs', {style: 'panel'}) %>
+        <div class="panel">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>IP</th>
+                        <th>User</th>
+                        <th>URL</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% _.each(documents, function (document) { %>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td><%= document.id %></td>
+                        <td><%= document.ipAddress %></td>
+                        <td><%= document.user ? document.user.username : '???' %></td>
+                        <td><%= document.url %></td>
+                        <td><%= document.createdAt %></td>
+                        <td>
+                            <div class="button-group small radius">
+                                <a href="<%= path('admin_user_log_detail', {id: document.id}) %>" class="button"><i class="fa fa-fw fa-search"></i>
+                                    Detail</a>
+                                <a class="dropdown button arrow-only" data-toggle="dd-<%= document.id %>">
+                                    <span class="show-for-sr">Show menu</span> </a>
+                            </div>
+                            <div class="dropdown-pane" id="dd-<%= document.id %>" data-dropdown data-hover="true" data-hover-pane="true">
+                                <ul class="menu vertical">
+                                    <li>
+                                        <a href="<%= path('admin_user_log_destroy', {id: document.id}) %>" data-method="DELETE"><i class="fa fa-fw fa-trash"></i>
+                                            <span>Destroy</span></a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <%- partial('../../../_partials/pagination.ejs', {style: 'panel'}) %>
+    </div>
+</div>
+<div class="reveal large modal-settings" id="modal-settings-user-log" data-reveal>
+    <h2><i class="fa fa-cogs"></i> Settings</h2>
+    <ul class="tabs" data-tabs id="settings-content">
+        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true"><i class="fa fa-bars"></i> Routes</a></li>
+        <li class="tabs-title"><a href="#panel2"><i class="fa fa-history"></i> Logs</a></li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="settings-content">
+        <div class="tabs-panel is-active" id="panel1">
+            <%- pathList('user-log') %>
+        </div>
+        <div class="tabs-panel" id="panel2">
+            <div class="nodata">Coming soon...</div>
+        </div>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>

@@ -1,0 +1,146 @@
+@mixin menu-large() {
+    #admin-menu{
+        width: $menu-width;
+        .accordion{
+            .accordion-item{
+                &.user{
+                    .accordion-title{
+                        padding: 2rem 0;
+                        .avatar{
+                            width:  100px;
+                            height: 100px;
+                        }
+                        .name{
+                            display: block;
+                        }
+                    }
+                }
+                .accordion-title{
+                    padding: 1rem;
+                    &:before{
+                        display: block;
+                    }
+                    span{
+                        display: inline;
+                    }
+                    i{
+                        display: inline-block;
+                        margin:  0;
+                    }
+                }
+                .accordion-content{
+                    ul{
+                        li{
+                            a{
+                                i{
+                                    display: inline-block;
+                                }
+                                span{
+                                    display: inline;
+                                }
+                            }
+                            .count{
+                                display: block;
+                            }
+                        }
+                        .title{
+                            span{
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #admin-content{
+        padding-left: $menu-width;
+        header{
+            padding-left: $menu-width;
+            div{
+                a{
+                    &.menu-switch{
+                        &:before{
+                            content: $fa-var-chevron-left;
+                        }
+                    }
+                }
+            }
+        }
+        footer{
+            padding-left: $menu-width;
+        }
+    }
+}
+
+@mixin menu-small() {
+    #admin-menu{
+        width: $menu-icon-width;
+        .accordion{
+            .accordion-item{
+                &.user{
+                    .accordion-title{
+                        padding: 0.5rem 0;
+                        .avatar{
+                            width:  40px;
+                            height: 40px;
+                        }
+                        .name{
+                            display: none;
+                        }
+                    }
+                }
+                .accordion-title{
+                    padding: 0.5rem 0;
+                    &:before{
+                        display: none;
+                    }
+                    span{
+                        display: none;
+                    }
+                    i{
+                        display: block;
+                        margin:  auto;
+                    }
+                }
+                .accordion-content{
+                    ul{
+                        li{
+                            a{
+                                span{
+                                    display: none;
+                                }
+                            }
+                            .count{
+                                display: none;
+                            }
+                        }
+                        .title{
+                            span{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #admin-content{
+        padding-left: $menu-icon-width;
+        header{
+            padding-left: $menu-icon-width;
+            div{
+                a{
+                    &.menu-switch{
+                        &:before{
+                            content: $fa-var-chevron-right;
+                        }
+                    }
+                }
+            }
+        }
+        footer{
+            padding-left: $menu-icon-width;
+        }
+    }
+}

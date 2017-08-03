@@ -1,0 +1,18 @@
+{
+  "name": "fhm-integration-tools",
+  "dependencies": {
+    "jquery-ui": "~1",
+    "jquery.cookie": "~1.4",
+    "foundation-sites": "~6.3",
+    "foundation-datepicker": "~1.5",
+    "fontawesome": "~4.7",
+    "hover": "~2.1",
+    "animate-sass": "~0.6",
+    "slick-carousel": "~1.6",
+    "tinymce": "~4.5",
+    "restfulizer": "*",
+    "owl.carousel": "^2.2.1",
+    "moment": "^2.18.1",
+    "perfect-scrollbar": "^0.6.16"
+  }
+}

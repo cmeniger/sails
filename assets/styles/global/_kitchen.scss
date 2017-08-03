@@ -1,0 +1,80 @@
+#kitchen{
+    #kitchen-menu{
+        position:       fixed;
+        top:            10px;
+        height:         100%;
+        overflow:       auto;
+        padding-bottom: 1rem;
+        a{
+            display: block;
+        }
+    }
+    .kitchen-title{
+        padding:        2rem 0;
+        text-align:     center;
+        text-transform: uppercase;
+        color:          $primary-color;
+    }
+    .kitchen-color{
+        .kitchen-color-block{
+            border:        1px solid $light-gray;
+            padding:       0.5rem;
+            margin-bottom: 1rem;
+            text-align:    center;
+            .kitchen-color-block-panel{
+                width:         100%;
+                height:        50px;
+                margin-bottom: 0.5rem;
+            }
+            p{
+                margin: 0;
+            }
+        }
+    }
+    .kitchen-animate{
+        .animated{
+            display:    inline-block;
+            margin:     .4em;
+            padding:    1em;
+            background: $light-gray;
+            color:      $black;
+        }
+    }
+    .kitchen-hover{
+        a{
+            margin:          .4em;
+            padding:         1em;
+            background:      $light-gray;
+            text-decoration: none;
+            color:           $black;
+            cursor:          pointer;
+        }
+    }
+    .kitchen-slick{
+        width:  80%;
+        margin: auto;
+        span{
+            display:     block;
+            position:    relative;
+            background:  $light-gray;
+            color:       $primary-color;
+            font-size:   36px;
+            line-height: 150px;
+            margin:      10px;
+            padding:     2%;
+            text-align:  center;
+        }
+    }
+    section{
+        .kitchen-title{
+            @include box-shadow();
+            margin:     1rem 0;
+            padding:    1rem 0;
+            font-size:  1.2em;
+            background: $light-gray;
+            color:      $black;
+            border-top: 4px solid $primary-color;
+            opacity:    0.3;
+        }
+    }
+}

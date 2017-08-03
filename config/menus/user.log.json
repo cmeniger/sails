@@ -1,0 +1,16 @@
+{
+  "user-log": {
+    "parent": "user",
+    "order": 99,
+    "name": "Logs",
+    "icon": "fa-history",
+    "sons": [],
+    "links": [
+      {
+        "name": "Logs",
+        "icon": "fa-history",
+        "url": "admin_user_log_index"
+      }
+    ]
+  }
+}

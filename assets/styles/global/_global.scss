@@ -1,0 +1,429 @@
+//  Table of Contents:
+//
+//   A. Variables
+//   1. Tools
+//   2. Color text
+//   3. Color background
+//   4. Color border
+//   5. Buttons
+//   6. Padding
+//   7. Margin
+//   8. Title
+//   9. Content
+//  10. Border
+
+// A. Variables
+// ------------
+
+// 1. Tools
+// ---------------
+
+.fullwidth{
+    width: 100% !important;
+}
+
+.align-center{
+    display: block;
+    margin:  0 auto;
+}
+
+// 2. Color text
+// -------------
+.color-text-primary{
+    color: $primary-color;
+}
+
+.color-text-secondary{
+    color: $secondary-color;
+}
+
+.color-text-success{
+    color: $success-color;
+}
+
+.color-text-warning{
+    color: $warning-color;
+}
+
+.color-text-alert{
+    color: $alert-color;
+}
+
+.color-text-white{
+    color: $white;
+}
+
+.color-text-light-gray{
+    color: $light-gray;
+}
+
+.color-text-medium-gray{
+    color: $medium-gray;
+}
+
+.color-text-dark-gray{
+    color: $dark-gray;
+}
+
+.color-text-black{
+    color: $black;
+}
+
+// 3. Color background
+// -------------------
+.color-bg-primary{
+    background-color: $primary-color;
+}
+
+.color-bg-secondary{
+    background-color: $secondary-color;
+}
+
+.color-bg-success{
+    background-color: $success-color;
+}
+
+.color-bg-warning{
+    background-color: $warning-color;
+}
+
+.color-bg-alert{
+    background-color: $alert-color;
+}
+
+.color-bg-white{
+    background-color: $white;
+}
+
+.color-bg-light-gray{
+    background-color: $light-gray;
+}
+
+.color-bg-medium-gray{
+    background-color: $medium-gray;
+}
+
+.color-bg-dark-gray{
+    background-color: $dark-gray;
+}
+
+.color-bg-black{
+    background-color: $black;
+}
+
+// 4. Color border
+// ---------------
+.color-border-primary{
+    border-color: $primary-color;
+}
+
+.color-border-secondary{
+    border-color: $secondary-color;
+}
+
+.color-border-success{
+    border-color: $success-color;
+}
+
+.color-border-warning{
+    border-color: $warning-color;
+}
+
+.color-border-alert{
+    border-color: $alert-color;
+}
+
+.color-border-white{
+    border-color: $white;
+}
+
+.color-border-light-gray{
+    border-color: $light-gray;
+}
+
+.color-border-medium-gray{
+    border-color: $medium-gray;
+}
+
+.color-border-dark-gray{
+    border-color: $dark-gray;
+}
+
+.color-border-black{
+    border-color: $black;
+}
+
+// 5. Buttons
+// ---------------
+button.radius, .button.radius{
+    @include border-radius(3px);
+}
+
+button.round, .button.round, .button-group.round{
+    @include border-radius(1000px);
+}
+
+.button-group{
+    &.radius{
+        .button{
+            &:first-child{
+                @include border-radius-separate(3px, 0, 3px, 0);
+            }
+            &:last-child{
+                @include border-radius-separate(0, 3px, 0, 3px);
+            }
+        }
+    }
+    &.round{
+        .button{
+            &:first-child{
+                @include border-radius-separate(1000px, 0, 1000px, 0);
+            }
+            &:last-child{
+                @include border-radius-separate(0, 1000px, 0, 1000px);
+            }
+        }
+    }
+    .button{
+        span{
+            display: inline-block;
+        }
+    }
+    @include breakpoint(large down){
+        @each $size, $value in $button-sizes{
+            &.#{$size}-for-large{
+                .button{
+                    font-size: $value;
+                }
+            }
+        }
+        &.hide-text-for-large{
+            .button{
+                span{
+                    display: none;
+                }
+            }
+        }
+    }
+    @include breakpoint(medium down){
+        @each $size, $value in $button-sizes{
+            &.#{$size}-for-medium{
+                .button{
+                    font-size: $value;
+                }
+            }
+        }
+        &.hide-text-for-medium{
+            .button{
+                span{
+                    display: none;
+                }
+            }
+        }
+    }
+    @include breakpoint(small down){
+        @each $size, $value in $button-sizes{
+            &.#{$size}-for-small{
+                .button{
+                    font-size: $value;
+                }
+            }
+        }
+        &.hide-text-for-small{
+            .button{
+                span{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+table{
+    button, .button, .button-group{
+        margin: 0;
+    }
+}
+
+// 6. Padding
+// ---------------
+
+.reset-padding{
+    padding: 0 !important;
+}
+
+.reset-padding-bottom{
+    padding-bottom: 0 !important;
+}
+
+.reset-padding-top{
+    padding-top: 0 !important;
+}
+
+.reset-padding-right{
+    padding-right: 0 !important;
+}
+
+.reset-padding-left{
+    padding-left: 0 !important;
+}
+
+.gutter-padding{
+    padding: $global-padding !important;
+}
+
+.gutter-padding-top{
+    padding-top: $global-padding !important;
+}
+
+.gutter-padding-bottom{
+    padding-bottom: $global-padding !important;
+}
+
+.gutter-padding-right{
+    padding-right: $global-padding !important;
+}
+
+.gutter-padding-left{
+    padding-left: $global-padding !important;
+}
+
+// 7. Margin
+// ---------------
+
+.reset-margin{
+    margin: 0 !important;
+}
+
+.reset-margin-bottom{
+    margin-bottom: 0 !important;
+}
+
+.reset-margin-top{
+    margin-top: 0 !important;
+}
+
+.reset-margin-right{
+    margin-right: 0 !important;
+}
+
+.reset-margin-left{
+    margin-left: 0 !important;
+}
+
+.gutter-margin{
+    margin: $global-margin !important;
+}
+
+.gutter-margin-top{
+    margin-top: $global-margin !important;
+}
+
+.gutter-margin-bottom{
+    margin-bottom: $global-margin !important;
+}
+
+.gutter-margin-right{
+    margin-right: $global-margin !important;
+}
+
+.gutter-margin-left{
+    margin-left: $global-margin !important;
+}
+
+// 8. Title
+// ---------------
+
+h1, h2, h3, h4, h5, h6{
+    @include font1();
+    text-transform: uppercase;
+}
+
+h1{
+}
+
+h2{
+}
+
+h3{
+}
+
+h4{
+}
+
+h5{
+}
+
+h6{
+}
+
+// 9. Content
+// ---------------
+
+.content-index{
+    overflow: hidden;
+    .card{
+        p{
+            height:   200px;
+            overflow: hidden;
+        }
+    }
+    .thumbnail{
+        width:  50px;
+        height: 50px;
+        margin: 0;
+        img{
+            max-width: 100%;
+        }
+    }
+    table{
+        th{
+            position: relative;
+            span{
+                position:   absolute;
+                right:      0;
+                top:        0;
+                padding:    $table-padding;
+                background: $table-head-background;
+                a{
+                    color: $light-gray;
+                    &:hover{
+                        color: $primary-color;
+                    }
+                    &.current{
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.content-detail{
+    .thumbnail{
+        width:  200px;
+        height: 200px;
+        img{
+            max-width: 100%;
+        }
+    }
+}
+
+.content-create{
+
+}
+
+.content-update{
+
+}
+
+// 10. Border
+// ---------------
+
+.border-radius{
+    @include border-radius(3px);
+}
+
+.border-round{
+    @include border-radius(1000px);
+}

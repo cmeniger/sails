@@ -1,0 +1,19 @@
+<div class="row section-integration">
+    <h1>
+        Integration
+    </h1>
+    <div class="small button-group">
+        <a href="<%= path('home') %>" class="button secondary round"><i class="fa fa-fw fa-home"></i> Home</a>
+    </div>
+    <div class="content-index">
+        <div class="row small-up-2 medium-up-3 large-up-4">
+            <ul class="menu vertical">
+                <% _.each(documents, function (document) { %>
+                <li>
+                    <a href="<%= path('integration_template', {template: document}) %>"><%= document %></a>
+                </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</div>

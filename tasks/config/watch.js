@@ -1,31 +1,29 @@
 /**
- * `watch`
+ * Run predefined tasks whenever watched file patterns are added, changed or deleted.
  *
  * ---------------------------------------------------------------
  *
- * Run predefined tasks whenever watched file patterns are added, changed or deleted.
- *
- * Watch for changes on:
+ * Watch for changes on
  * - files in the `assets` folder
  * - the `tasks/pipeline.js` file
  * and re-run the appropriate tasks.
  *
- * For usage docs see:
- *   https://github.com/gruntjs/grunt-contrib-watch
  *
  */
-module.exports = function(grunt) {
+module.exports = function(gulp, plugins, growl) {
+  plugins.livereload.listen();
 
-  grunt.config.set('watch', {
-    assets: {
+  // Watch API files
+  // NOTE This watcher is set-up by the sails-hook-autoreload NPM package
 
-      // Assets to watch:
-      files: ['assets/**/*', 'tasks/pipeline.js', '!**/node_modules/**'],
-
-      // When assets are changed:
-      tasks: ['syncAssets' , 'linkAssets' ]
-    }
+  // Watch assets
+  gulp.task('watch:assets', function() {
+    gulp.watch(['assets/**/*', 'tasks/pipeline.js'], ['syncAssets', 'media']);
   });
 
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  // Watch views
+  gulp.task('watch:views', function() {
+    gulp.watch(['views/*', 'views/**/*'], ['reload', 'media']);
+  });
+
 };

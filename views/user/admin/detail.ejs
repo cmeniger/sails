@@ -1,0 +1,114 @@
+
+<div class="row section-test">
+    <h1>
+        Test : <%= document.first_name  %> <%= document.last_name%>
+    </h1>
+    <div class="small button-group round">
+        <a href="/admin" class="button secondary"><i class="fa fa-fw fa-tachometer"></i> Admin</a>
+        <a href="/admin/user" class="button secondary"><i class="fa fa-fw fa-chevron-left"></i> Back</a>
+        <a href="/admin/user/create" class="button"><i class="fa fa-fw fa-plus"></i> Create</a>
+        <a href="/admin/user/update/<%= document.id %>" class="button"><i class="fa fa-fw fa-pencil"></i>
+            Update</a>
+    </div>
+    <div class="content-index">
+        <fieldset class="fieldset">
+            <legend>Data</legend>
+            <table>
+                <tbody>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td>
+                            ID
+                        </td>
+                        <td>
+                            <%= document.id %>
+                        </td>
+                    </tr>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td>
+                            First name
+                        </td>
+                        <td>
+                            <%= document.first_name %>
+                        </td>
+                    </tr>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td>
+                            LastName
+                        </td>
+                        <td>
+                            <%= document.last_name %>
+                        </td>
+                    </tr>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td>
+                            Username
+                        </td>
+                        <td>
+                            <%= document.username %>
+                        </td>
+                    </tr>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            <%= document.email %>
+                        </td>
+                    </tr>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            <%= document.phone %>
+                        </td>
+                    </tr>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td>
+                            Adresse
+                        </td>
+                        <td>
+                            <%= document.address %>
+                        </td>
+                    </tr>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td>
+                            Zip-code
+                        </td>
+                        <td>
+                            <%= document.zip_code %>
+                        </td>
+                    </tr>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td>
+                            City
+                        </td>
+                        <td>
+                            <%= document.city %>
+                        </td>
+                    </tr>
+                    <tr data-id="<%= document.id %>" data-model="document">
+                        <td>
+                            Country
+                        </td>
+                        <td>
+                            <%= document.country %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Roles</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <% _.each(document.roles, function (role) { %>
+                                    <td><%= role.name %></td>
+                                </tr>
+                                <% }); %>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+</div>

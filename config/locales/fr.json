@@ -1,4 +1,14 @@
 {
-	"Welcome": "Bienvenue",
-	"A brand new app.": "Une toute nouvelle application."
+	"© %s %s All right reserved. Website developed by": "© %s %s All right reserved. Website developed by",
+	"Settings": "Settings",
+	"Create": "Create",
+	"Routes": "Routes",
+	"Logs": "Logs",
+	"Coming soon...": "Coming soon...",
+	"Previous": "Previous",
+	"Next": "Next",
+	"Update": "Update",
+	"Menu": "Menu",
+	"Detail": "Detail",
+	"Destroy": "Destroy"
 }

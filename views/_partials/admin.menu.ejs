@@ -1,0 +1,59 @@
+<nav>
+    <ul class="accordion" data-accordion>
+        <li class="accordion-item user" data-accordion-item>
+            <a href="#" class="accordion-title" title="<%= req.session.me.username %>">
+                <span class="avatar" style="background:url(<%= req.session.me.gravatarUrl ? req.session.me.gravatarUrl : '/images/default-avatar.jpg' %>) no-repeat center center;"></span>
+                <span class="name"><%= req.session.me.username %></span> </a>
+            <div class="accordion-content" data-tab-content>
+                <ul>
+                    <li>
+                        <a href="<%= path('logout') %>" title="logout" class="hvr-underline-reveal"><i class="fa fa-fw fa-sign-out"></i><span>Logout</span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <% if (typeof documents !== "undefined") {
+        _.each(documents, function (document) { %>
+        <li class="accordion-item <%= document.current ? 'is-active' : '' %>" data-accordion-item>
+            <a href="#" class="accordion-title" title="<%= document.name %>"><i class="fa fa-fw <%= document.icon %>"></i><span><%= document.name %></span></a>
+            <div class="accordion-content" data-tab-content>
+                <ul>
+                    <% _.each(document.links, function (link) { %>
+                    <li class="<%= link.current ? 'is-active' : '' %>">
+                        <a href="<%= path(link.url) %>" title="<%= link.name %>" class="hvr-underline-reveal"><i class="fa fa-fw <%= link.icon %>"></i><span><%= link.name %></span></a>
+                        <% if(link.count) { %>
+                        <span class="count" render-url="<%= path('admin_model_count', {model: link.count}) %>" render-method="POST"><i class="fa fa-spin fa-refresh"></i></span>
+                        <% } %>
+                    </li>
+                    <% }); %>
+                    <% _.each(document.sons, function (son) { %>
+                    <% if(son.display === true) { %>
+                    <li>
+                        <div class="title" title="<%= son.name %>">
+                            <i class="fa fa-fw <%= son.icon %>"></i><span><%= son.name %></span>
+                        </div>
+                    </li>
+                    <% } %>
+                    <% _.each(son.links, function (link) { %>
+                    <li class="<%= link.current ? 'is-active' : '' %>">
+                        <a href="<%= path(link.url) %>" title="<%= link.name %>" class="hvr-underline-reveal"><i class="fa fa-fw <%= link.icon %>"></i><span><%= link.name %></span></a>
+                        <% if(link.count) { %>
+                        <span class="count" render-url="<%= path('admin_model_count', {model: link.count}) %>" render-method="POST"><i class="fa fa-spin fa-refresh"></i></span>
+                        <% } %>
+                    </li>
+                    <% }); %>
+                    <% }); %>
+                </ul>
+            </div>
+        </li>
+        <% });} %>
+    </ul>
+</nav>
+<script type="application/javascript">
+    $(document).ready(function ()
+    {
+        $('#admin-menu nav').perfectScrollbar({
+            theme: 'admin-menu'
+        });
+    });
+</script>

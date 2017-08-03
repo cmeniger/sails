@@ -1,0 +1,90 @@
+<div id="dialog-confirm" title="<%= __('Confirm action...') %>" style="display:none;">
+    <h2><%= __('Confirm ?') %></h2>
+    <p><%= __('This action is final') %></p>
+</div>
+<div id="dialog-info" title="" style="display:none;">
+    <h2></h2>
+    <p></p>
+</div>
+<script type="application/javascript">
+    $(document).ready(function ()
+    {
+        $('a[dialog]').each(function ()
+        {
+            if(typeof $(this).attr('data-method') !== 'undefined')
+            {
+                $(this).attr('dialog-method', $(this).attr('data-method')).removeAttr('data-method');
+            }
+            $(this).unbind('click').click(function (e)
+            {
+                e.preventDefault();
+                var $link = $(this);
+                var $dialog = $('#dialog-' + $link.attr('dialog'));
+                var buttons = {};
+                // Title
+                if(typeof $link.attr('dialog-title') !== 'undefined')
+                {
+                    $dialog.find('h2').html($link.attr('dialog-title'));
+                }
+                // Content
+                if(typeof $link.attr('dialog-content') !== 'undefined')
+                {
+                    $dialog.find('p').html($link.attr('dialog-content'));
+                }
+                // Buttons
+                if($link.attr('dialog') === 'confirm')
+                {
+                    buttons = {
+                        "<%= __('Yes') %>": function ()
+                                            {
+                                                if(typeof $link.attr('dialog-method') !== 'undefined')
+                                                {
+                                                    $link
+                                                        .unbind('click')
+                                                        .restfulizer({
+                                                            parse:  true,
+                                                            method: $link.attr('dialog-method')
+                                                        })
+                                                        .trigger('click');
+                                                }
+                                                else
+                                                {
+                                                    window.location.href = $link.attr('href');
+                                                }
+                                            },
+                        "<%= __('No') %>":  function ()
+                                            {
+                                                $(this).dialog("close");
+                                            }
+                    };
+                }
+                if($link.attr('dialog') === 'info')
+                {
+                    buttons = {
+                        "<%= __('Ok') %>": function ()
+                                           {
+                                               window.location.href = $link.attr('href');
+                                           }
+                    };
+                }
+                // Create dialog
+                $dialog.dialog({
+                    modal:       true,
+                    autoOpen:    true,
+                    resizable:   false,
+                    width:       '400px',
+                    closeText:   '',
+                    dialogClass: $(this).attr('dialog-class'),
+                    buttons:     buttons,
+                    open:        function (event)
+                                 {
+                                     var $buttonpane = $('.ui-dialog-buttonpane');
+                                     $buttonpane.find('button:contains("<%= __('Yes') %>")').addClass('yes');
+                                     $buttonpane.find('button:contains("<%= __('No') %>")').addClass('no');
+                                     $buttonpane.find('button:contains("<%= __('Ok') %>")').addClass('ok');
+                                 }
+                });
+            });
+        });
+    });
+</script>

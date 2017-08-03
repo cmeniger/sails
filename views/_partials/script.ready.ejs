@@ -1,0 +1,39 @@
+<script type="application/javascript">
+    $(document).ready(function ()
+    {
+        $(document).foundation();
+        $(document).render();
+        $("a[data-method]").restfulizer();
+        $(".dpicker").fdatepicker({
+            language: '<%= getLocale() %>',
+            pickTime: false
+        });
+        $(".dtpicker").fdatepicker({
+            language: '<%= getLocale() %>',
+            pickTime: true
+        });
+        tinymce.init({
+            selector:    'textarea.editor',
+            height:      200,
+            language:    '<%= getLocale() %>',
+            plugins:     [
+                'visualblocks visualchars charmap table contextmenu advlist imagetools',
+                'textcolor link image media fullscreen code codemirror fontawesome'
+            ],
+            toolbar1:    'bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+            toolbar2:    'forecolor backcolor | link image media | fullscreen code | removeformat',
+            menubar:     'edit insert view format table',
+            content_css: '/styles/front.css',
+            codemirror:  {
+                path: 'codemirror'
+            },
+            setup:       function (editor)
+                         {
+                             editor.on('change', function ()
+                             {
+                                 editor.save();
+                             });
+                         }
+        });
+    });
+</script>

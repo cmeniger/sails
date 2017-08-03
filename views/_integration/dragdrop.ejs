@@ -1,0 +1,30 @@
+
+<div id="wrapper">
+    <div id="outerBox">
+        <div class="rect">abc</div>
+        <div class="rect">def</div>
+    </div>
+</div>
+<script>
+    var tapTimeout;
+
+    $("#outerBox div.rect").draggable({
+        containment: "parent",
+        delay: 500,
+        grid: [50, 50],
+        stop: function() {
+            $(this).removeClass("highlighted");
+        }
+    }).bind("mousedown touchstart", function() {
+        tapTimeout = setTimeout(function() {
+            alert();
+        }, 500);
+    }).bind("mouseleave mouseup touchcancel", function(e) {
+
+        clearTimeout(tapTimeout);
+
+    });
+
+
+
+</script>

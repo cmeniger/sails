@@ -1,0 +1,72 @@
+<% if(typeof pagination != 'undefined' && pagination.pageCount > 1) { %>
+<div class="pagination <%= typeof style != 'undefined' ? style : '' %>" render-list render-animation="fade" render-event="click" render-target="<%= typeof render != 'undefined' ? render : '#content-index' %>" render-source="<%= typeof render != 'undefined' ? render : '#content-index' %>">
+    <ul class="pagination text-center" role="navigation" aria-label="Pagination">
+        <!-- Previous -->
+        <% if(pagination.previousPage === false) { %>
+        <li class="pagination-previous disabled"><%= __('Previous') %></li>
+        <% } else { %>
+        <li class="pagination-previous">
+            <a href="<%= pagination.route + '?pager_current=' + pagination.previousPage %>&pager_sort_field=<%= pagination.sort.field %>&pager_sort_direction=<%= pagination.sort.direction %>" aria-label="Previous page"><%= __('Previous') %></a>
+        </li>
+        <% } %>
+        <!--Page 1-->
+        <% if(pagination.page == 1) { %>
+        <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+        <% } else { %>
+        <li>
+            <a href="<%= pagination.route + '?pager_current=1' %>&pager_sort_field=<%= pagination.sort.field %>&pager_sort_direction=<%= pagination.sort.direction %>" aria-label="Page 1">1</a>
+        </li>
+        <% } %>
+        <!--Separator-->
+        <% var separatorLeft = pagination.page - pagination.left > 2 ? Math.floor((pagination.page - pagination.left) / 2) : false %>
+        <% if(separatorLeft !== false) { %>
+        <li>
+            <a href="<%= pagination.route + '?pager_current=' + separatorLeft %>&pager_sort_field=<%= pagination.sort.field %>&pager_sort_direction=<%= pagination.sort.direction %>" aria-label="Page <%= separatorLeft %>">...</a>
+        </li>
+        <% } %>
+        <!--Page left-->
+        <% for(var i = pagination.left; i > 0; i--) { %>
+        <% if(pagination.page - i > 1) { %>
+        <li>
+            <a href="<%= pagination.route + '?pager_current=' + (pagination.page - i) %>&pager_sort_field=<%= pagination.sort.field %>&pager_sort_direction=<%= pagination.sort.direction %>" aria-label="Page <%= pagination.page - i %>"><%= pagination.page - i %></a>
+        </li>
+        <% } %>
+        <% } %>
+        <!--Page current-->
+        <% if(pagination.page > 1 && pagination.page < pagination.pageCount) { %>
+        <li class="current"><span class="show-for-sr">You're on page</span> <%= pagination.page %></li>
+        <% } %>
+        <!--Page right-->
+        <% for(var j = 1; j <= pagination.right; j++) { %>
+        <% if(pagination.page + j < pagination.pageCount) { %>
+        <li>
+            <a href="<%= pagination.route + '?pager_current=' + (pagination.page + j) %>&pager_sort_field=<%= pagination.sort.field %>&pager_sort_direction=<%= pagination.sort.direction %>" aria-label="Page <%= pagination.page + j %>"><%= pagination.page + j %></a>
+        </li>
+        <% } %>
+        <% } %>
+        <!--Separator-->
+        <% var separatorRight = pagination.page + pagination.right < pagination.pageCount - 1 ? Math.floor(pagination.pageCount - ((pagination.pageCount - pagination.page - pagination.right) / 2)) : false %>
+        <% if(separatorRight !== false) { %>
+        <li>
+            <a href="<%= pagination.route + '?pager_current=' + separatorRight %>&pager_sort_field=<%= pagination.sort.field %>&pager_sort_direction=<%= pagination.sort.direction %>" aria-label="Page <%= separatorRight %>">...</a>
+        </li>
+        <% } %>
+        <!--Last page-->
+        <% if(pagination.page == pagination.pageCount) { %>
+        <li class="current"><span class="show-for-sr">You're on page</span> <%= pagination.pageCount %></li>
+        <% } else { %>
+        <li>
+            <a href="<%= pagination.route + '?pager_current=' + pagination.pageCount %>&pager_sort_field=<%= pagination.sort.field %>&pager_sort_direction=<%= pagination.sort.direction %>" aria-label="Page <%= pagination.pageCount %>"><%= pagination.pageCount %></a>
+        </li>
+        <% } %>
+        <!--Next-->
+        <% if(pagination.nextPage === false) { %>
+        <li class="pagination-next disabled"><%= __('Next') %></li>
+        <% } else { %>
+        <li class="pagination-next">
+            <a href="<%= pagination.route + '?pager_current=' + pagination.nextPage %>&pager_sort_field=<%= pagination.sort.field %>&pager_sort_direction=<%= pagination.sort.direction %>" aria-label="Next page"><%= __('Next') %></a>
+        </li>
+        <% } %>
+    </ul>
+</div>
+<% } %>

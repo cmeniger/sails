@@ -1,0 +1,32 @@
+<% if(typeof pagination !== 'undefined' && typeof field !== 'undefined') { %>
+<span>
+    <% if(pagination.sort.field === field && pagination.sort.direction === 'asc') { %>
+    <a href="#" class="current"
+       render-url="<%= pagination.route %>?pager_current=<%= pagination.page %>&pager_sort_field=<%= field %>&pager_sort_direction=desc"
+       render-animation="fade"
+       render-event="click"
+       render-target="<%= typeof render != 'undefined' ? render : '#content-index' %>"
+       render-source="<%= typeof render != 'undefined' ? render : '#content-index' %>">
+        <i class="fa fa-fw fa-caret-up"></i>
+    </a>
+    <% } else if(pagination.sort.field === field && pagination.sort.direction === 'desc') { %>
+    <a href="#" class="current"
+       render-url="<%= pagination.route %>?pager_current=<%= pagination.page %>&pager_sort_field=<%= field %>&pager_sort_direction=asc"
+       render-animation="fade"
+       render-event="click"
+       render-target="<%= typeof render != 'undefined' ? render : '#content-index' %>"
+       render-source="<%= typeof render != 'undefined' ? render : '#content-index' %>">
+        <i class="fa fa-fw fa-caret-down"></i>
+    </a>
+    <% } else { %>
+    <a href="#"
+       render-url="<%= pagination.route %>?pager_current=<%= pagination.page %>&pager_sort_field=<%= field %>&pager_sort_direction=asc"
+       render-animation="fade"
+       render-event="click"
+       render-target="<%= typeof render != 'undefined' ? render : '#content-index' %>"
+       render-source="<%= typeof render != 'undefined' ? render : '#content-index' %>">
+        <i class="fa fa-fw fa-sort"></i>
+    </a>
+    <% } %>
+</span>
+<% } %>

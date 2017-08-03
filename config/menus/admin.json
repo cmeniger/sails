@@ -1,0 +1,16 @@
+{
+  "admin": {
+    "parent": "",
+    "order": 0,
+    "name": "Admin",
+    "icon": "fa-tachometer",
+    "sons": [],
+    "links": [
+      {
+        "name": "Dashboard",
+        "icon": "fa-tachometer",
+        "url": "admin"
+      }
+    ]
+  }
+}

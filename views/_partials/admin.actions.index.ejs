@@ -1,0 +1,60 @@
+<% if(typeof bundle !== 'undefined' && typeof document != 'undefined') { %>
+<div class="button-group small radius">
+    <a href="<%= path('admin_' + bundle + '_update', {id: document.id}) %>" class="button">
+        <i class="fa fa-fw fa-pencil"></i> <%= __('Update') %>
+    </a> <a class="dropdown button arrow-only" data-toggle="dd-<%= document.id %>">
+        <span class="show-for-sr"><%= __('Menu') %></span> </a>
+</div>
+<div class="dropdown-pane bottom reset-padding" id="dd-<%= document.id %>" data-dropdown data-hover="true" data-hover-pane="true">
+    <ul class="actions">
+        <li>
+            <a href="<%= path('admin_' + bundle + '_detail', {id: document.id}) %>">
+                <i class="fa fa-fw fa-search"></i><span><%= __('Detail') %></span></a>
+        </li>
+        <% if(typeof preview !== 'undefined' && preview === true) { %>
+        <li>
+            <a href="<%= path(bundle + '_detail', {id: document.id}) %>" target="_blank">
+                <i class="fa fa-fw fa-eye"></i><span><%= __('Preview') %></span></a>
+        </li>
+        <% } %>
+        <% if(typeof customs !== 'undefined') { %>
+            <% _.each(customs, function (link) { %>
+                <% if(typeof link.alert === 'undefined' || link.alert === false) { %>
+                    <li>
+                        <% if(typeof link.modal !== 'undefined' && link.modal !== '') { %>
+                            <a render-url="<%= link.path %>" render-modal="<%= link.modal %>" <%- typeof link.attributes !== 'undefined' ? link.attributes : '' %>>
+                                <i class="fa fa-fw <%= typeof link.icon !== 'undefined' ? link.icon : 'fa-link' %>"></i><span><%= link.name %></span></a>
+                        <% } else { %>
+                            <a href="<%= link.path %>" <%- typeof link.attributes !== 'undefined' ? link.attributes : '' %>>
+                                <i class="fa fa-fw <%= typeof link.icon !== 'undefined' ? link.icon : 'fa-link' %>"></i><span><%= link.name %></span></a>
+                        <% } %>
+                    </li>
+                <% } %>
+            <% }); %>
+        <% } %>
+        <li class="alert">
+            <a href="<%= path('admin_' + bundle + '_destroy', {id: document.id}) %>"
+               data-method="DELETE"
+               dialog="confirm"
+               dialog-title="<%= __('Destroy your data ?') %>"
+               dialog-content="<%= __('This action is final and you will be unable to recover any data') %>"
+               dialog-class="alert"><i class="fa fa-fw fa-trash"></i><span><%= __('Destroy') %></span></a>
+        </li>
+        <% if(typeof customs !== 'undefined') { %>
+            <% _.each(customs, function (link) { %>
+                <% if(typeof link.alert !== 'undefined' && link.alert === true) { %>
+                    <li class="alert">
+                        <% if(typeof link.modal !== 'undefined' && link.modal !== '') { %>
+                        <a render-url="<%= link.path %>" render-modal="<%= link.modal %>" <%- typeof link.attributes !== 'undefined' ? link.attributes : '' %>>
+                            <i class="fa fa-fw <%= typeof link.icon !== 'undefined' ? link.icon : 'fa-link' %>"></i><span><%= link.name %></span></a>
+                        <% } else { %>
+                        <a href="<%= link.path %>" <%- typeof link.attributes !== 'undefined' ? link.attributes : '' %>>
+                            <i class="fa fa-fw <%= typeof link.icon !== 'undefined' ? link.icon : 'fa-link' %>"></i><span><%= link.name %></span></a>
+                        <% } %>
+                    </li>
+                <% } %>
+            <% }); %>
+        <% } %>
+    </ul>
+</div>
+<% } %>

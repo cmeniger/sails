@@ -1,0 +1,16 @@
+{
+  "user": {
+    "parent": "",
+    "order": 1,
+    "name": "User",
+    "icon": "fa-users",
+    "sons": [],
+    "links": [
+      {
+        "name": "Users",
+        "icon": "fa-users",
+        "url": "/admin/user"
+      }
+    ]
+  }
+}

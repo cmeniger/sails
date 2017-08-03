@@ -1,0 +1,121 @@
+.ui-dialog{
+    @include box-shadow(0, 0, 10px);
+    @include border-radius(20px);
+    position:   absolute;
+    z-index:    20001;
+    background: $callout-background;
+    color:      $callout-font-color;
+    border:     $callout-border;
+    .ui-dialog-titlebar{
+        position:      relative;
+        font-size:     0.8em;
+        text-align:    center;
+        padding:       $callout-padding;
+        border-bottom: $callout-border;
+        .ui-dialog-titlebar-close{
+            position: absolute;
+            top:      $callout-padding;
+            right:    $callout-padding;
+            color:    $light-gray;
+            cursor:   pointer;
+            &:before{
+                @extend .hvr-grow;
+                content:     $fa-var-times;
+                font-family: FontAwesome;
+                font-size:   1.5em;
+            }
+        }
+    }
+    .ui-dialog-content{
+        background: none repeat scroll 0 0 transparent;
+        border:     0 none;
+        overflow:   auto;
+        position:   relative;
+        padding:    $callout-padding;
+        margin:     0;
+        text-align: center;
+        h2{
+            font-size:      1.5em;
+            text-transform: none;
+        }
+        p{
+            font-size: 0.8em;
+            color:     $medium-gray;
+            padding:   0 10%;
+        }
+    }
+    .ui-dialog-buttonpane{
+        @include border-radius-separate(0, 0, 20px, 20px);
+        padding:    $callout-padding / 2;
+        background: $light-gray;
+        .ui-dialog-buttonset{
+            text-align: center;
+            button{
+                @extend .hvr-pulse;
+                margin:  0 1rem;
+                width:   100px;
+                padding: 0.5rem 1rem;
+                cursor:  pointer;
+                &:focus, &:hover{
+                    outline: none;
+                }
+            }
+        }
+    }
+    &:focus, &:hover{
+        outline: none;
+    }
+    &.alert{
+        border-color: $alert-color;
+        .ui-dialog-titlebar{
+            border-color: $alert-color;
+        }
+        .ui-dialog-buttonpane{
+            background: $alert-color;
+            .ui-dialog-buttonset{
+                button{
+                    color: $white;
+                }
+            }
+        }
+    }
+    &.warning{
+        border-color: $warning-color;
+        .ui-dialog-titlebar{
+            border-color: $warning-color;
+        }
+        .ui-dialog-buttonpane{
+            background: $warning-color;
+            .ui-dialog-buttonset{
+                button{
+                    color: $white;
+                }
+            }
+        }
+    }
+    &.success{
+        border-color: $success-color;
+        .ui-dialog-titlebar{
+            border-color: $success-color;
+        }
+        .ui-dialog-buttonpane{
+            background: $success-color;
+            .ui-dialog-buttonset{
+                button{
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+.ui-widget-overlay{
+    position:   fixed;
+    top:        0;
+    left:       0;
+    width:      100%;
+    height:     100%;
+    background: $black;
+    opacity:    .5;
+    z-index:    20000;
+}

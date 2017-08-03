@@ -1,0 +1,59 @@
+<div class="row section-setting">
+    <h1>
+        <%= __('users') %>
+    </h1>
+    <div class="small button-group round">
+        <a href="<%= path('admin') %>" class="button secondary"><i class="fa fa-fw fa-tachometer"></i> <%= __('admin') %></a>
+        <a href="/admin/user/create" class="button"><i class="fa fa-fw fa-plus"></i> <%= __('create') %></a>
+    </div>
+    <div class="content-index" id="content-index">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        FirstName
+                    </th>
+                    <th>
+                        LastName
+                    </th>
+                    <th>
+                        UserName
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Phone
+                    </th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% _.each(documents, function (document) { %>
+                <tr data-id="<%= document.id %>" data-model="document">
+                    <td><%= document.first_name %></td>
+                    <td><%= document.last_name %></td>
+                    <td><%= document.username %></td>
+                    <td><%= document.email %></td>
+                    <td><%= document.phone %></td>
+                    <td>
+                        <div class="button-group small radius">
+                            <a href="/admin/user/update/<%= document.id %>" class="button"><i class="fa fa-fw fa-pencil"></i> Update</a>
+                            <a class="dropdown button arrow-only" data-toggle="dd-<%= document.id %>">
+                                <span class="show-for-sr">Show menu</span>
+                            </a>
+                        </div>
+                        <div class="dropdown-pane" id="dd-<%= document.id %>" data-dropdown data-hover="true" data-hover-pane="true">
+                            <ul class="menu vertical">
+                                <li><a href="/admin/user/detail/<%= document.id %>"><i class="fa fa-fw fa-search"></i> <span>Detail</span></a></li>
+                                <li><a href="/admin/user/destroy/<%= document.id %>" data-method="DELETE"><i class="fa fa-fw fa-trash"></i> <span>Destroy</span></a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <%- partial('../../_partials/pagination.ejs') %>
+    </div>
+</div>

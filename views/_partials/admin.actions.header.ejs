@@ -1,0 +1,39 @@
+<% if(typeof bundle !== 'undefined') { %>
+<div class="button-group round reset-margin tiny-for-small small-for-medium hide-text-for-small">
+    <% if(typeof back !== 'undefined' && back === true) { %>
+    <a href="<%= path('admin_' + bundle + '_index') %>" class="button secondary" title="<%= __('Back') %>">
+        <i class="fa fa-fw fa-chevron-left"></i> <span><%= __('Back') %></span>
+    </a>
+    <% } %>
+    <a class="button secondary" data-open="modal-settings-<%= bundle %>" title="<%= __('Settings') %>">
+        <i class="fa fa-fw fa-cogs"></i> <span><%= __('Settings') %></span>
+    </a>
+    <a href="<%= path('admin_' + bundle + '_create') %>" class="button" title="<%= __('Create') %>">
+        <i class="fa fa-fw fa-plus"></i> <span><%= __('Create') %></span>
+    </a>
+    <% if(typeof id !== 'undefined' && id !== '') { %>
+    <a href="<%= path('admin_' + bundle + '_update', {id:id}) %>" class="button" title="<%= __('Update') %>">
+        <i class="fa fa-fw fa-pencil"></i> <span><%= __('Update') %></span>
+    </a>
+    <% } %>
+</div>
+<div class="reveal large modal-settings" id="modal-settings-<%= bundle %>" data-reveal>
+    <h2><i class="fa fa-cogs"></i> <%= __('Settings') %></h2>
+    <ul class="tabs" data-tabs id="settings-content">
+        <li class="tabs-title is-active">
+            <a href="#panel1" aria-selected="true"><i class="fa fa-bars"></i> <%= __('Routes') %></a></li>
+        <li class="tabs-title"><a href="#panel2"><i class="fa fa-history"></i> <%= __('Logs') %></a></li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="settings-content">
+        <div class="tabs-panel is-active" id="panel1">
+            <%- pathList(bundle) %>
+        </div>
+        <div class="tabs-panel" id="panel2">
+            <div class="nodata"><%= __('Coming soon...') %></div>
+        </div>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<% } %>

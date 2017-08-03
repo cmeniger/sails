@@ -1,0 +1,9 @@
+.ps-theme-admin-menu{
+    @include ps-container(map-merge($ps-theme-default, (
+            border-radius: 0,
+            scrollbar-x-rail-height: 0,
+            scrollbar-x-height: 0,
+            scrollbar-y-rail-width: 0,
+            scrollbar-y-width: 0
+    )));
+}

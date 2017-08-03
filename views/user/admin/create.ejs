@@ -1,0 +1,47 @@
+<div class="row section-test">
+    <h1>
+        <%= __('user') %> : Create
+    </h1>
+    <div class="small button-group round">
+        <a href="<%= path('admin') %>" class="button secondary"><i class="fa fa-fw fa-tachometer"></i> Admin</a>
+        <a href="/admin/user" class="button secondary"><i class="fa fa-fw fa-chevron-left"></i> Back</a>
+    </div>
+    <div class="content-create">
+        <form action="/admin/user/create" enctype="multipart/form-data" method="post">
+            <div class="row">
+                <div class="columns medium-6 medium-centered">
+                    <fieldset class="fieldset">
+                        <div class="row">
+                            <div class="columns medium-6">
+                                <fieldset class="fieldset">
+                                    <legend>Connexion</legend>
+                                    <label for="username">username <input name="username" type="text"/></label> <label for="email">Choose
+                                        a email <input name="email" type="text"/></label> <label for="password">Choose a Password
+                                        <input name="password" type="password"/></label> <label for="confirmation">repeate Password
+                                        <input name="confirmation" type="password"/></label>
+                                </fieldset>
+                            </div>
+                            <div class="columns medium-6">
+                                <fieldset class="fieldset">
+                                    <legend>Information</legend>
+                                    <label for="first_name">Choose a firstname <input name="first_name" type="text"/></label>
+                                    <label for="last_name">Choose a lastname <input name="last_name" type="text"/></label>
+                                    <label for="address">address <input name="address" type="text"/></label> <label for="zip_code">code
+                                        postal <input name="zip_code" type="text"/></label> <label for="city">Ville
+                                        <input name="city" type="text"/></label> <label for="country">pays
+                                        <input name="country" type="text"/></label> <label for="phone">phone
+                                        <input name="phone" type="text"/></label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row gutter-margin-top">
+                <div class="columns small-3 small-centered">
+                    <input type="submit" class="button round fullwidth" value="Submit"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

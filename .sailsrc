@@ -1,5 +1,13 @@
 {
-  "generators": {
-    "modules": {}
-  }
+    "hooks": {
+        "grunt": false
+    },
+    "generators": {
+        "modules": {
+            "auth-api": "sails-auth/generator",
+            "permissions-api": "sails-permissions/generator",
+            "gulp": "sails-generate-gulp",
+            "crud": "sails-generate-crud"
+        }
+    }
 }

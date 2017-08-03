@@ -1,0 +1,39 @@
+<div class="container">
+    <h3>
+        Firstname <%= document.first_name %>
+    </h3>
+    <div>
+        LastName = <%= document.last_name %>
+    </div>
+    <div>
+        UserName = <%= document.username %>
+    </div>
+    <div>
+        Email = <%= document.email %>
+    </div>
+    <div>
+        Phone = <%= document.phone %>
+    </div>
+    <div>
+        Address = <%= document.address %>
+    </div>
+    <div>
+        Zipcode = <%= document.zip_code %>
+    </div>
+    <div>
+        city = <%= document.city %>
+    </div>
+    <div>
+        country = <%= document.country %>
+    </div>
+    <h5>Roles</h5>
+    <table>
+        <tr><th>rolename</th></tr>
+        <tr>
+            <% _.each(document.roles, function (role) { %>
+            <td><%= role.name %></td>
+        </tr>
+        <% }); %>
+    </table>
+    <a href="/admin/user/update/<%= document.id %>">Edit</a> <a href="/admin/user">Retour</a>
+</div>

@@ -1,0 +1,30 @@
+<div class="row section-user">
+    <h1>
+        Login
+    </h1>
+    <div class="small button-group">
+        <a href="<%= path('home') %>" class="button secondary round"><i class="fa fa-fw fa-home"></i> Home</a>
+    </div>
+    <div class="content-create">
+        <form action="/auth/local?next=/admin" method="post">
+            <div class="row">
+                <div class="columns medium-6 medium-centered">
+                    <fieldset class="fieldset">
+                        <legend>Connection</legend>
+                        <label>Email
+                            <input type="email" name="identifier" value="admin2@phoenix.local">
+                        </label>
+                        <label>Password
+                            <input type="password" name="password" value="phoenix123456">
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row gutter-margin-top">
+                <div class="columns small-3 small-centered">
+                    <input type="submit" class="button round fullwidth" value="Submit"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ADMIN | <%= typeof title === 'undefined' ? sails.config.name : title %></title>
+        <!-- Viewport mobile tag for sensible mobile support -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!--STYLES_ADMIN-->
+        <link rel="stylesheet" href="/styles/admin.css">
+        <!--STYLES_ADMIN END-->
+        <!--SCRIPTS_HEAD-->
+        <script src="/js/head/jquery.min.js"></script>
+        <script src="/js/head/jquery-ui.min.js"></script>
+        <script src="/js/head/jquery.cookie.js"></script>
+        <!--SCRIPTS_HEAD END-->
+    </head>
+    <body class="admin <%= req.cookies.adminMenu ? req.cookies.adminMenu : '' %>">
+        <a href="#" id="anchor-top"></a>
+        <section id="admin-menu" render-url="<%= path('admin_menu') %>"></section>
+        <section id="admin-content">
+            <%- partial('../_partials/admin.header.ejs') %>
+            <%- partial('../_partials/flash.ejs') %>
+            <section class="content">
+                <%- body %>
+            </section>
+            <%- partial('../_partials/admin.modal.ejs') %>
+            <%- partial('../_partials/admin.footer.ejs') %>
+        </section>
+        <!--TEMPLATES-->
+        
+        <!--TEMPLATES END-->
+        <!--SCRIPTS-->
+        <script src="/js/dependencies/sails.io.js"></script>
+        <script src="/js/vendor/foundation-datepicker.min.js"></script>
+        <script src="/js/vendor/foundation.js"></script>
+        <script src="/js/vendor/jquery.restfulizer.js"></script>
+        <script src="/js/vendor/moment-with-locales.min.js"></script>
+        <script src="/js/vendor/perfect-scrollbar.jquery.min.js"></script>
+        <script src="/js/vendor/slick.js"></script>
+        <script src="/js/script.js"></script>
+        <script src="/libraries/tinymce/tinymce.js"></script>
+        <!--SCRIPTS END-->
+        <%- partial('../_partials/script.ready.ejs') %>
+    </body>
+</html>

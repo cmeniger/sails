@@ -1,0 +1,35 @@
+<% if(typeof messages != 'undefined'){ %>
+    <% if(messages && messages['error'].length > 0) { %>
+    <div class="alert callout" data-closable>
+        <% messages['error'].forEach(function(message) { %>
+        <%= message %>
+        <br>
+        <% }); %>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if(messages && messages['warning'].length > 0) { %>
+    <div class="warning callout" data-closable>
+        <% messages['warning'].forEach(function(message) { %>
+        <%= message %>
+        <br>
+        <% }); %>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if(messages && messages['success'].length > 0) { %>
+    <div class="success callout" data-closable>
+        <% messages['success'].forEach(function(message) { %>
+        <%= message %>
+        <br>
+        <% }); %>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+<% } %>

@@ -1,0 +1,35 @@
+//-----------------
+// UTIL
+//-----------------
+
+@import "util/settings";
+@import "util/fonts";
+@import "util/mixins";
+
+//-----------------
+// VENDOR
+//-----------------
+
+@import "../../../bower_components/fontawesome/scss/font-awesome";
+@import "../../../bower_components/slick-carousel/slick/slick.scss";
+@import "../../../bower_components/slick-carousel/slick/slick-theme.scss";
+@import "../../../bower_components/hover/scss/hover";
+@import "../../../bower_components/animate-sass/animate";
+@import "../../../bower_components/foundation-datepicker/scss/foundation-datepicker.scss";
+
+//-----------------
+// GLOBAL
+//-----------------
+
+@import "../global/mixins";
+@import "../global/global";
+@import "../global/kitchen";
+@import "../global/helpers";
+@import "../global/dialog";
+
+//-----------------
+// PROJECT
+//-----------------
+
+// Always at the end
+@import "project/style";
