@@ -1,5 +1,5 @@
 {
-  "name": "cmeniger/sails",
+  "name": "sails",
   "private": true,
   "version": "0.0.0",
   "description": "a Sails application",
@@ -44,7 +44,7 @@
     "sails-auth": "^2.1.3",
     "sails-custom-swagger-hook": "^1.0.3",
     "sails-disk": "~0.10.9",
-    "sails-generate-crud": "git+http://gitlab.fhmsolutions.com/npm/sails-generate-crud.git#master",
+    "sails-generate-crud": "github:cmeniger/sails-generate-crud",
     "sails-hook-gulp": "0.0.1",
     "sails-hook-validation": "^0.4.6",
     "sails-mongo": "^0.12.2",
