@@ -1,5 +1,5 @@
 {
-  "name": "phoenix",
+  "name": "cmeniger/sails",
   "private": true,
   "version": "0.0.0",
   "description": "a Sails application",
@@ -63,10 +63,10 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/phoenix.git"
+    "url": "https://github.com/cmeniger/sails.git"
   },
-  "author": "FHM Solutions",
-  "license": "",
+  "author": "Cyril Meniger",
+  "license": "MIT",
   "devDependencies": {
     "gulp-cache": "^0.4.1",
     "gulp-changed": "1.3.0",
