@@ -62,7 +62,7 @@ module.exports.connections = {
         port: 27017,
         user: null, //optional
         password: null, //optional
-        database: 'phoenix' //optional
+        database: 'sails' //optional
     },
 
     /***************************************************************************

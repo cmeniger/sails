@@ -34,5 +34,6 @@
 	"This action is final and you will be unable to recover any data": "This action is final and you will be unable to recover any data",
 	"Confirm ?": "Confirm ?",
 	"This action is final": "This action is final",
-	"Ok": "Ok"
+	"Ok": "Ok",
+	"passport.password.minLength": "passport.password.minLength"
 }

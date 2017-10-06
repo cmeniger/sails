@@ -26,7 +26,7 @@
 >https://github.com/foreverjs/forever
 
 [1] &nbsp; Services and Crud :
-###### all services and cruds code are stored in phoenix/api
+###### all services and cruds code are stored in sails/api
         
         - sails
              - api

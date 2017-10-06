@@ -100,12 +100,12 @@ module.exports = {
     /********************************************
      * MONGODB
      *******************************************/
-    mongoDBUrl:         'mongodb://docker_fhmmongo_1:27017/phoenix',
+    mongoDBUrl:         'mongodb://docker_fhmmongo_1:27017/sails',
     databaseConnection: 'connectMongodbServer',
     permissions:        {
-        adminUsername: 'admin2',
-        adminEmail:    'admin2@phoenix.local',
-        adminPassword: 'phoenix123456'
+        adminUsername: 'admin',
+        adminEmail:    'admin@local.com',
+        adminPassword: 'admin'
     },
     /********************************************
      * PAGINATION
