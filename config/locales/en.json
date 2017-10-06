@@ -35,5 +35,10 @@
 	"Confirm ?": "Confirm ?",
 	"This action is final": "This action is final",
 	"Ok": "Ok",
-	"passport.password.minLength": "passport.password.minLength"
+	"passport.password.minLength": "passport.password.minLength",
+	"users": "users",
+	"admin": "admin",
+	"create": "create",
+	"Created": "Created",
+	"Updated": "Updated"
 }
